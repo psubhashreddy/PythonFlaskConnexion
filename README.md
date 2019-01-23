@@ -3,7 +3,7 @@ This is the sample application developed using python flask, connection framewor
 this is to list out the tasks from the file and to search, create and delete a task.
 how to run it.
 - make sure python is installed and the path is already set in the machine.
-- go to the parent directory and first install Flask, Connection and Connection[swagger]
+- go to the parent directory and install modules Flask, Connection and Connection[swagger] using "pip install <module_name>"
 - run the server.py file the server will be started
 - using localhost:5000, can go to the home page of the app.
 
