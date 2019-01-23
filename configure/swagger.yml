@@ -1,0 +1,97 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application API Url endpoints defined here
+paths:
+  /dependencies:
+    get:
+      operationId: "tasks.read_all"
+      tags:
+        - "dependencies"
+      summary: "The dependencies data structure supported by the server application"
+      description: "Read the list of dependencies"
+      parameters:
+        - name: length
+          in: query
+          type: integer
+          description: Number of tasks to get from dependencies
+          required: false
+        - name: offset
+          in: query
+          type: integer
+          description: Offset from beginning of list where to start gathering task
+          required: false
+      responses:
+        200:
+          description: "Successful listed all dependencies"
+          schema:
+            type: "array"
+            items:
+              properties:
+                networkId:
+                  type: string
+                networkName:
+                  type: string
+                dependsOnNetworkId:
+                  type: string
+                startNetworkTime:
+                  type: string
+                endNetworkTime:
+                  type: string
+    post:
+      operationId: tasks.create
+      tags:
+        - dependencies
+      summary: Create a task and add it to the dependency list
+      description: Create a new task in the dependency list
+      parameters:
+        - name: task
+          in: body
+          description: Task to create
+          required: True
+          schema:
+            type: object
+            properties:
+              networkId:
+                type: string
+                description: Task Id to create
+              networkName:
+                type: string
+                description: Task Name to create
+              dependsOnNetworkId:
+                type: string
+                description: Task depends on other task Id to create
+              startNetworkTime:
+                type: string
+                description: Start time of Task to create
+              endNetworkTime:
+                type: string
+                description: End time of Task to create
+      responses:
+        201:
+          description: Successfully created task in list
+
+  /dependencies/{networkId}:
+    delete:
+      operationId: tasks.delete
+      tags:
+        - dependencies
+      summary: Delete a task from the dependencies list
+      description: Delete a task
+      parameters:
+        - name: networkId
+          in: path
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully deleted a task from dependencies list

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="banner">Network Dependency Application</h1>
+        <div class="section editor">
+          <label for="networkId">Task ID
+              <input id="networkId" type="text" />
+          </label>
+          <label for="networkName">Task Name
+              <input id="networkName" type="text" />
+          </label>
+          <br />
+          <label for="dependsOnNetworkId">Depends on ID
+              <input id="dependsOnNetworkId" type="text" />
+          </label>
+          <label for="startNetworkTime">Task Start Time
+              <input id="startNetworkTime" type="text" />
+          </label>
+          <br />
+          <label for="endNetworkTime">Task End Time
+              <input id="endNetworkTime" type="text" />
+          </label>
+          <br />
+          <button id="create">Add Task</button>
+          <button id="delete">Delete Task</button>
+        </div>
+        <div class="dependencies">
+            <table>
+                <caption>Dependencies</caption>
+                <thead>
+                    <tr>
+                      <th>Task ID</th>
+                      <th>Task Name</th>
+                      <th>Depends on ID</th>
+                      <th>Task Start Time</th>
+                      <th>Task End Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+</body>
+<script src="static/js/home.js"></script>
+</html>
